@@ -8,22 +8,39 @@ import CurrentUserActions from './actions/CurrentUserActions';
 import CurrentUserStore   from './stores/CurrentUserStore';
 import Header             from './components/Header';
 import Footer             from './components/Footer';
-import IssuesRoot             from './components/issueRoot';
+import Sample             from './components/example';
 
 var App = React.createClass({
+
   mixins: [ListenerMixin],
 
   getInitialState() {
     return {
-      issues: {}
+      currentUser: {}
     };
   },
 
+  _onUserChange(err, user) {
+    if ( err ) {
+      this.setState({ error: err });
+    } else {
+      this.setState({ currentUser: user || {}, error: null });
+    }
+  },
+
+  componentWillMount() {
+    console.log('About to mount App');
+  },
+
+  componentDidMount() {
+    this.listenTo(CurrentUserStore, this._onUserChange);
+    CurrentUserActions.checkLoginStatus();
+  },
+
   render() {
-    var url = "https://api.github.com/repos/rails/rails/issues"
     return (
       <div>
-        <IssuesRoot source={url}/>
+        <Sample />
       </div>
     );
   }

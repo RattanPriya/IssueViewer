@@ -19,6 +19,9 @@
     "node": "^0.12.x",
     "npm": "^2.1.x"
   },
+  "dependencies": {
+    "jquery"  : "1.5.1"
+    },
   "devDependencies": {
     "babelify": "^6.1.x",
     "browser-sync": "^2.7.13",
