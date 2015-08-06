@@ -1,6 +1,6 @@
 var React = require('react');
 var IssueItem = require('./issueItem');
-
+var ReactPaginate = require('react-paginate');
 var IssueList = React.createClass({
 
 	render: function() {

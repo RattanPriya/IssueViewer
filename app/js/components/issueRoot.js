@@ -8,7 +8,7 @@ var issueRoot = React.createClass({
     },
 
     componentDidMount: function() {
-        $.get(this.props.source, function(result) {
+        window.jQuery.get(this.props.source, function(result) {
             if (this.isMounted()) {
                 this.setState({
                     data: result
@@ -21,9 +21,10 @@ var issueRoot = React.createClass({
     },
 
     render: function() {
-        var result = [{"id": "A"},{"id": "B"}, {"id": "C"},{"id": "D"}];
         return (
-            <IssueList issues={this.state.data}/>
+            <div className='issue-list'>
+                <IssueList  issues={this.state.data}/>
+            </div>
         );
     }
 

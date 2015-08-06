@@ -8,7 +8,6 @@ import HomePage                             from './pages/HomePage';
 import SearchPage                           from './pages/SearchPage';
 import NotFoundPage                         from './pages/NotFoundPage';
 
-window.$ = require('jquery')
 export default (
   <Route handler={App} path='/'>
 
