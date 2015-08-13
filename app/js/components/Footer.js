@@ -6,11 +6,12 @@ var Footer = React.createClass({
 
   render() {
     return (
-      <footer>
+      <div>
+      	<input/> 
+      	<Button> Submit </Button> 
+      	<Button> Cancel </Button>
 
-        Footer
-
-      </footer>
+      </div>
     );
   }
 

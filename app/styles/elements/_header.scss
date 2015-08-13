@@ -1,4 +1,19 @@
-header {
-  height: 50px;
-  background: #eeeeee;
+.issue-header {
+    .issue-number {
+        font-weight: 300;
+        color: #aaa;
+        letter-spacing: -1px;
+    }
+    .meta {
+        margin-top: 9px;
+        font-size: 14px;
+        line-height: 20px;
+        color: #767676;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+    .state-open, .state-proposed, .state-reopened {
+        background-color: #6cc644;
+    }
 }

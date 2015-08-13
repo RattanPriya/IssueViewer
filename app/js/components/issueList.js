@@ -8,13 +8,11 @@ var IssueList = React.createClass({
     	    return (
     	      <ul>
     	        {this.props.issues.map(function(result) {
-    	          return <IssueItem data={result} key={result.id}/>;
+    	          return <IssueItem  data={result} key={result.id}/>;
     	        })}
     	      </ul>
     	    );
-        } else {
-            return (<div> Loading </div>)
-        }
+        } 
   	}
 
 });
