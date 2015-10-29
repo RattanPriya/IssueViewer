@@ -23,4 +23,4 @@ This boilerplate uses the latest versions of the following libraries:
 
 Along with many Gulp libraries (these can be seen in either `package.json`, or at the top of each task in `/gulp/tasks/`).
 
-![alt tag](https://github.com/RattanPriya/IssueViewer/img.png)
+![alt tag](https://github.com/RattanPriya/IssueViewer/blob/master/demo.gif)
