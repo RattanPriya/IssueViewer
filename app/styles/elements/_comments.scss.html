@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://localhost:3001/true -->
+<html class="no-js" lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width">
+
+      <title>App Name</title>
+
+      <link rel="stylesheet" href="http://localhost:3001/css/main.css">
+  <style type="text/css"></style><style type="text/css"></style><script type="text/javascript" src="chrome-extension://aadgmnobpdmgmigaicncghmmoeflnamj/ng-inspector.js"></script><style type="text/css"></style></head>
+  <body><script type="text/javascript" id="__bs_script__">//<![CDATA[
+    document.write("<script async src='/browser-sync/browser-sync-client.2.8.1.js'><\/script>".replace("HOST", location.hostname));
+//]]></script><script async="" src="./_comments.scss_files/browser-sync-client.2.8.1.js"></script>
+
+
+    <div id="content"><div class="issue-details" data-reactid=".1"><div class="issue" data-reactid=".1.0"><div class="details" data-reactid=".1.0.0"><div class="title" data-reactid=".1.0.0.0"><span data-reactid=".1.0.0.0.0"> </span><a data-reactid=".1.0.0.0.1"><span data-reactid=".1.0.0.0.1.0"> </span><span data-reactid=".1.0.0.0.1.1">Prevent destructive action on production database</span><span data-reactid=".1.0.0.0.1.2"> </span></a><span data-reactid=".1.0.0.0.2"> </span><span data-reactid=".1.0.0.0.3"><span data-reactid=".1.0.0.0.3.0"> </span><span data-reactid=".1.0.0.0.3.1"></span></span></div><div class="summary" data-reactid=".1.0.0.1"><span data-reactid=".1.0.0.1.0"> dangerouslySetInnerHTML=</span><span data-reactid=".1.0.0.1.1:$__html:0">It is possible to run your tests against your production database by accident right now. While infrequently, but as an anecdotal data point, Heroku receives a non-trivial number of requests for a database restore due to this happening. In these cases the loss can be large. 
+
+To prevent against running tests against production we can store the "environment" version that was used when migrating the database in the schema table. Before executing tests we can see if the database is a "production" database and abort. There is a manual escape valve to force this check from happening with environment variable `RUN_AGAINST_PRODUCTION_DATABASE=1`
+
+This is a WIP
+
+TODO
+
+- [ ] schema load populates environment in the schema table
+- [ ] check for `supports_migrations?`
+- [ ] handle case for when activerecord is included but no database used
+
+To Test
+
+- [ ] add test for when `rake test` with RAILS_ENV prevents task from running
+- [ ] add test for when `rake test` is called without any environment data in the schema
+
+cc @rafaelfranca @sgrif</span></div><div class="meta" data-reactid=".1.0.0.2"><span data-reactid=".1.0.0.2.0"><span data-reactid=".1.0.0.2.0.0"> #</span><span data-reactid=".1.0.0.2.0.1">21237</span><span data-reactid=".1.0.0.2.0.2"> created on </span><span data-reactid=".1.0.0.2.0.3">3 days ago</span><span data-reactid=".1.0.0.2.0.4"> </span></span></div></div><div data-reactid=".1.0.1"><div class="gravatar" data-reactid=".1.0.1.0"><img src="./_comments.scss_files/59744" data-reactid=".1.0.1.0.0"></div><div class="user" data-reactid=".1.0.1.1"><span data-reactid=".1.0.1.1.0"> </span><span data-reactid=".1.0.1.1.1">schneems</span><span data-reactid=".1.0.1.1.2"> </span></div></div></div><div data-reactid=".1.1"><ul data-reactid=".1.1.0"><div class="comments" data-reactid=".1.1.0.$131175111"><div class="header" data-reactid=".1.1.0.$131175111.0"><a href="https://github.com/rafaelfranca" data-reactid=".1.1.0.$131175111.0.0"><img src="./_comments.scss_files/47848" data-reactid=".1.1.0.$131175111.0.0.0"><span data-reactid=".1.1.0.$131175111.0.0.1"><span data-reactid=".1.1.0.$131175111.0.0.1.0"> </span><span data-reactid=".1.1.0.$131175111.0.0.1.1">rafaelfranca</span><span data-reactid=".1.1.0.$131175111.0.0.1.2"> </span></span></a><div data-reactid=".1.1.0.$131175111.0.1"><span data-reactid=".1.1.0.$131175111.0.1.0">commented </span><span data-reactid=".1.1.0.$131175111.0.1.1">3 days ago</span></div></div><div class="body" data-reactid=".1.1.0.$131175111.1">I think we have to make sure that `rails test` also check this.</div></div><div class="comments" data-reactid=".1.1.0.$131778739"><div class="header" data-reactid=".1.1.0.$131778739.0"><a href="https://github.com/pixeltrix" data-reactid=".1.1.0.$131778739.0.0"><img src="./_comments.scss_files/6321" data-reactid=".1.1.0.$131778739.0.0.0"><span data-reactid=".1.1.0.$131778739.0.0.1"><span data-reactid=".1.1.0.$131778739.0.0.1.0"> </span><span data-reactid=".1.1.0.$131778739.0.0.1.1">pixeltrix</span><span data-reactid=".1.1.0.$131778739.0.0.1.2"> </span></span></a><div data-reactid=".1.1.0.$131778739.0.1"><span data-reactid=".1.1.0.$131778739.0.1.0">commented </span><span data-reactid=".1.1.0.$131778739.0.1.1">17 hours ago</span></div></div><div class="body" data-reactid=".1.1.0.$131778739.1">I think what @senny said is fatal flaw for doing it via a column in the `schema_migrations` table and I wasn't a fan of encoding it there anyway. What about creating a new `schema_environment` table that just has a single row and then don't add the value to `db/structure.sql`?</div></div></ul></div><postcomments data-reactid=".1.2"></postcomments></div></div>
+    <script src="./_comments.scss_files/jquery-1.11.3.min.js"></script>
+    <script src="./_comments.scss_files/jquery-migrate-1.2.1.min.js"></script>
+    <script src="./_comments.scss_files/main.js"></script>
+    
+  
+<div id="__bs_notify__" style="display: none; padding: 15px; font-family: sans-serif; position: fixed; font-size: 0.9em; z-index: 9999; right: 0px; top: 0px; border-bottom-left-radius: 5px; margin: 0px; color: white; text-align: center; background-color: rgb(27, 32, 50);">Connected to BrowserSync</div></body></html>

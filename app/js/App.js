@@ -20,7 +20,7 @@ var App = React.createClass({
   },
 
   render() {
-    var url = "https://api.github.com/repos/rails/rails/issues?client_id=bb0c9dc0faf5bd14aa1e&client_secret=190a9a2c8921ef9845194d8fe9e3f848d118bf70"
+    var url = "https://api.github.com/repos/rails/rails/issues?client_id=6bcb89fa65fb925edd55&client_secret=f611d5b0011b15be5f3bd404970d349af13da6a6"
     return (
       <div>
         <IssuesRoot

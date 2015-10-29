@@ -1,14 +1,15 @@
 var React = require('react');
 var moment = require('moment');
 	moment().format();
+var utils = require('../utils/markdown');
 var Issue = React.createClass({
 	render: function() {
 		var relativeDate = moment(this.props.date).fromNow();
 		return (
 			<div className='issue'>
 				<div className='details'> 
-					<div className='title'> {this.props.title} </div>
-					<div className='summary'> {this.props.summary} </div>
+					<div className='title'> <a href={this.props.url}> {this.props.title} </a> <span> {this.props.state}</span></div>
+					<div className='summary'> {utils.processBody(this.props.summary)} </div>
 					<div className='meta'> 
 					<span> #{this.props.issueNumber} created on {relativeDate} </span></div>
 				</div>

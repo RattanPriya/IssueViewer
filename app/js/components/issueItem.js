@@ -26,14 +26,18 @@ var IssueItem = React.createClass({
 				gravatar = this.props.data.user.avatar_url ? this.props.data.user.avatar_url : '',
 				summary = this.props.data.body ? this.parseSummary(this.props.data.body) : '',
 				date = this.props.data.created_at ? this.props.data.created_at : '',
-				userUrl = this.props.data.user.html_url ? this.props.data.user.html_url : '' 
+				userUrl = this.props.data.user.html_url ? this.props.data.user.html_url : '' ,
+				url = this.props.data.html_url ? this.props.data.html_url : '',
+				state = this.props.state ? this.props.state : '',
+				commentsUrl = this.props.data.comments_url ? this.props.data.comments_url : '',
+				comments = this.props.comments ? this.props.comments : '';
 
 		} else {
 			return (<div> Ooops encountered an error! </div>)
 		}
 
 		return (
-			<li onClick={this.handleClick.bind(this)} className='issue-item'>
+			<li onClick={this.handleClick} className='issue-item'>
 				<Issue title={title} 
 					   date={date}
 					   state={state}
@@ -42,6 +46,10 @@ var IssueItem = React.createClass({
 					   gravatar={gravatar}
 					   userName={userName}
 					   parseSummary={summary}
+					   url = {url}
+					   state = {state}
+					   commentsUrl= {commentsUrl}
+					   comments = {comments}
 
 				/>
 			</li>

@@ -1,5 +1,5 @@
 var React = require('react');
-var store = require('../stores/issueViewerStore');
+var store = require('../../stores/issueViewerStore');
 var Comment = require('./Comment');
 
 var Comments = React.createClass({

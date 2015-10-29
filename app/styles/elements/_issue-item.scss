@@ -17,6 +17,7 @@
                 border: 1px solid #ccc;
                 border-radius: 100px;
             }
+
         }
         .user {
             a {
@@ -38,6 +39,10 @@
                 font-size: 18px;
                 font-weight: bold;
                 color: #555;
+                a {
+                    color: #428bca;
+                    text-decoration: none;
+                }
             }
         }
     }

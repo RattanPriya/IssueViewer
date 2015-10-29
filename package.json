@@ -20,8 +20,13 @@
     "npm": "^2.1.x"
   },
   "dependencies": {
-    "jquery"  : "1.5.1"
-    },
+    "flux": "^2.0.1",
+    "jquery": "1.5.1",
+    "marked": "^0.3.5",
+    "object-assign": "^3.0.0",
+    "react-paginator": "0.0.5",
+    "reactify": "^1.1.1"
+  },
   "devDependencies": {
     "babelify": "^6.1.x",
     "browser-sync": "^2.7.13",

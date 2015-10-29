@@ -1,3 +1,19 @@
 .issue-root {
 	background: #FFF;
 }
+
+.error{
+	position: absolute;
+	left: 50%;
+	top: 50%; 
+	transform: translate(-50%, -50%);
+	background: #FFF;
+	h3 {
+		text-align: center;
+		width: 500px;
+		padding-top: 20px;
+		margin-top: 20px;
+		font-size: 20px;
+		line-height: 1;
+	}
+}

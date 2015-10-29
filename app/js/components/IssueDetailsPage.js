@@ -15,7 +15,14 @@ var IssueDetailsPage = React.createClass({
             gravatar = this.props.data.user.avatar_url ? this.props.data.user.avatar_url : '',
             summary = this.props.data.body ? this.props.data.body : '',
             date = this.props.data.created_at ? this.props.data.created_at : '',
-            userUrl = this.props.data.user.html_url ? this.props.data.user.html_url : '' ;
+            userUrl = this.props.data.user.html_url ? this.props.data.user.html_url : '' ,
+            state = this.props.state ? this.props.state : '',
+            commentsUrl = this.props.data.comments_url ? this.props.data.comments_url : '',
+            commentsCount = this.props.data.comments,
+            renderComments;
+            if (commentsCount > 0) {
+              renderComments = <Comments url={commentsUrl}/>;
+            }
         return (
             <div className='issue-details'> 
                 <Issue title={title} 
@@ -27,7 +34,7 @@ var IssueDetailsPage = React.createClass({
                        userName={userName}
                        className='issue-details'
                 />
-                <Comments   />
+                {renderComments}
                 <postComments/>
             </div>
 
